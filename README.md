@@ -21,7 +21,7 @@ module "ecs-task-role" {
   ecs-type       = "FARGATE"
   desired_count  = 1
 
-  subnets = [module.vpc.public_subnet_az1_id, module.vpc.public_subnet_az2_id]
+  subnets = [public_subnet_az1_id, public_subnet_az2_id]
   alb-arn = module.alb.alb-arn
 
   file    = file("container-definition.json")
@@ -38,9 +38,9 @@ module "alb" {
   inter-ext          = "false"
   load_balancer_type = "application"
   security_groups    = module.sps.sg-id
-  subnets            = [module.vpc.public_subnet_az1_id, module.vpc.public_subnet_az2_id]
+  subnets            = [public_subnet_az1_id, public_subnet_az2_id]
   #certificate =
-  vpc_id      = module.vpc.vpc_id
+  vpc_id      = vpc_id
   target-name = "target-test"
 }
 
