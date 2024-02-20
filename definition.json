@@ -1,0 +1,15 @@
+{
+  "family": "example-task-definition",
+  "containerDefinitions": [
+    {
+      "name": "container-name",
+      "image": "your-container-image",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ]
+    }
+  ]
+}
