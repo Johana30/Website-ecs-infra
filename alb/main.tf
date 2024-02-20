@@ -42,7 +42,7 @@ resource "aws_lb_target_group" "lb-target" {
     cookie_name     = "ASP.NET_SessionId"
   }
   health_check {
-    matcher  = "302"
+    matcher  = "200"
     path     = "/"
     protocol = "HTTPS"
   }
